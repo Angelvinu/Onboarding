@@ -14,15 +14,15 @@ namespace Mars.Utilities
     {
         public static IWebDriver driver;
 
-        ProfilePage ProfilePageObj = new ProfilePage();
-        LoginPage LoginPageObj = new LoginPage();
+        LanguagePage LanguagePageObj;
+        LoginPage LoginPageObj;
 
         [SetUp]
         public void LoginAction()
         {
             driver = new ChromeDriver();
             LoginPageObj.LoginSteps(driver);
-            ProfilePageObj.GetWelcomeText(driver);
+            LanguagePageObj.GetWelcomeText(driver);
         }
         [OneTimeTearDown]
 

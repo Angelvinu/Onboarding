@@ -11,8 +11,20 @@ using System.Threading.Tasks;
 
 namespace Mars.Pages
 {
-    public class ProfilePage
+    public class LanguagePage
     {
+        //Define class with two objects
+        public IWebDriver driver;
+        
+
+        //Form constructor 
+
+        public LanguagePage(IWebDriver driver)
+        {
+            //initialising driver object
+            this.driver = driver;
+        }
+
         public string GetWelcomeText(IWebDriver driver)
         {
             //get the message as Hii Angel Mary
@@ -99,20 +111,21 @@ namespace Mars.Pages
         }
         public void DeleteLanguage(IWebDriver driver)
         {
-        
-                //Thread.Sleep(3000);
+             
                 //wait helpers.
                 WaitHelpers.WaitToBeClickable(driver, "XPath", "//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i", 4);
                 IWebElement DelLang = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i"));
-                DelLang.Click();
-           
-                Assert.That(DelLang.Text != "c", "language was not deleted successfully");
-            
-           
+                DelLang.Click();   
+        }
+        public string DelLang(IWebDriver driver)
+        {
+            WaitHelpers.WaitToBeClickable(driver, "XPath", "//div/section[2]/div/div/div/div[3]/form/div[1]/a[1]", 5);
+            //Identify editedlanguage and click
+            IWebElement DelLang = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));
+            return DelLang.Text;
 
         }
 
 
-        
     }
 }

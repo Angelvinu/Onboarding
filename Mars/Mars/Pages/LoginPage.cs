@@ -11,6 +11,13 @@ namespace Mars.Pages
 {
     public class LoginPage
     {
+        public IWebDriver driver;
+
+        public LoginPage(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
+
         public void LoginSteps(IWebDriver driver)
         {
             

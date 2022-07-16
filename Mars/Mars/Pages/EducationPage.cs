@@ -12,6 +12,13 @@ namespace Mars.Pages
     public class EducationPage
     {
 
+        public IWebDriver driver;
+
+        public EducationPage(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
+
         public void ClickOnEducationTab(IWebDriver driver)
         {
 
@@ -129,10 +136,15 @@ namespace Mars.Pages
 
             catch (Exception)
             {
-                Assert.Fail("Education row was not successfully deleted");
+                Assert.Fail("Education record doesnot exsit");
             }
         }
-
+        
+        public string DeletedUniversity(IWebDriver driver)
+        {
+            IWebElement DeletedUniversity = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[1]"));
+            return DeletedUniversity.Text;
+        }
         
 
     }
