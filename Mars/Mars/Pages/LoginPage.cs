@@ -17,12 +17,21 @@ namespace Mars.Pages
         {
             this.driver = driver;
         }
+        //find elements by XPath
+        private IWebElement SignIn => driver.FindElement(By.XPath(SignInXpath));
+        private IWebElement UserName => driver.FindElement(By.XPath(UserNameXpath));
+        private IWebElement Password => driver.FindElement(By.XPath(PasswordXpath));
+        private IWebElement LoginIn => driver.FindElement(By.XPath(LoginInXpath));
+
+
+        //Xpath
+        private string SignInXpath = "//*[@id='home']/div/div/div[1]/div/a";
+        private string UserNameXpath = "/html/body/div[2]/div/div/div[1]/div/div[1]/input";
+        private string PasswordXpath = "/html/body/div[2]/div/div/div[1]/div/div[2]/input";
+        private string LoginInXpath = "/html/body/div[2]/div/div/div[1]/div/div[4]/button";
 
         public void LoginSteps(IWebDriver driver)
         {
-            
-
-            //setting a driver interface
            
 
             //maximise the browser
@@ -35,17 +44,16 @@ namespace Mars.Pages
             try
             {
                 //Identify the sign in button
-                driver.FindElement(By.XPath("//*[@id='home']/div/div/div[1]/div/a")).Click();
+                SignIn.Click();
 
                 //identify username and enter the user name.
-                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[1]/input")).SendKeys("angelmarsalin@hotmail.com");
+                UserName.SendKeys("angelmarsalin@hotmail.com");
 
                 //identify password and enter the password.
-                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[2]/input")).SendKeys("Angel1234");
+                Password.SendKeys("Angel1234");
 
                 //identify login button and click on it.
-                IWebElement login = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[4]/button"));
-                login.Click();
+                LoginIn.Click();
 
                 
 

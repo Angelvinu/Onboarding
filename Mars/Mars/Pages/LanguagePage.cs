@@ -25,12 +25,48 @@ namespace Mars.Pages
             this.driver = driver;
         }
 
+        //find elements by XPath
+        private IWebElement message => driver.FindElement(By.XPath(xpValue));
+        private IWebElement lanValue1 => driver.FindElement(By.XPath(lanValue));
+        private IWebElement AddButton => driver.FindElement(By.XPath(AddButtonXpath));
+        private IWebElement AddLanguage1 => driver.FindElement(By.XPath(AddLanguageXpath));
+        private IWebElement DropDown => driver.FindElement(By.XPath(DropDownXpath));
+        private IWebElement SelectOption => driver.FindElement(By.XPath(SelectOptionXpath));
+        private IWebElement AddNow => driver.FindElement(By.XPath(AddNowXpath));
+        private IWebElement AddLang1 => driver.FindElement(By.XPath(AddLangXpath));
+        private IWebElement LangLevel1 => driver.FindElement(By.XPath(LangLevelXpath));
+        private IWebElement EditLanguage1 => driver.FindElement(By.XPath(EditLanguageXpath));
+        private IWebElement EditLang => driver.FindElement(By.XPath(EditLangXpath));
+        private IWebElement UpdateButton => driver.FindElement(By.XPath(UpdateButtonXpath));
+        private IWebElement UpdateLang2 => driver.FindElement(By.XPath(UpdateLanguageXpath));
+        private IWebElement DelLang2 => driver.FindElement(By.XPath(DelLangXpath));
+        private IWebElement DelLang3 => driver.FindElement(By.XPath(DelLanguageXpath));
+
+
+        //XPath
+        private string xpValue = "//*[@id='account-profile-section']/div/div[1]/div[2]/div/span";
+        private string lanValue = "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]";
+        private string AddButtonXpath = "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div";
+        private string AddLanguageXpath = "//input[@placeholder='Add Language']";
+        private string DropDownXpath = "//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[2]/select";
+        private string SelectOptionXpath = "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[2]/select/option[2]";
+        private string AddNowXpath = "//input[@value='Add']";
+        private string AddLangXpath = "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[1]";
+        private string LangLevelXpath = "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[2]";
+        private string EditLanguageXpath = "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[1]/i";
+        private string EditLangXpath = "//tbody/tr[1]/td[1]/div[1]/div[1]/input[1]";
+        private string UpdateButtonXpath = "//tbody/tr[1]/td[1]/div[1]/span[1]/input[1]";
+        private string UpdateLanguageXpath = "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]";
+        private string DelLangXpath = "//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i";
+        private string DelLanguageXpath = "//div/section[2]/div/div/div/div[3]/form/div[1]/a[1]";
+
+
+
         public string GetWelcomeText(IWebDriver driver)
         {
             //get the message as Hii Angel Mary
-            string xpValue = "//*[@id='account-profile-section']/div/div[1]/div[2]/div/span";
             WaitHelpers.WaitToBeVisible(driver, "XPath", xpValue, 3);
-            IWebElement message = driver.FindElement(By.XPath(xpValue));
+            
             //item ui dropdown link 
             return message.Text;
             Thread.Sleep(1500);
@@ -38,58 +74,52 @@ namespace Mars.Pages
         }
         public void ClickOnLanguageTab(IWebDriver driver)
         {
-            Thread.Sleep(1500);
+            
             //identify the language tab and click on it
-            string lanValue = "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]";
-            WaitHelpers.WaitToBeClickable(driver, "XPath", lanValue, 3);
-            driver.FindElement(By.XPath(lanValue)).Click();
-            Thread.Sleep(1500);
+            WaitHelpers.WaitToBeClickable(driver, "XPath", lanValue, 5);
+            lanValue1.Click();
+            
         }
         public void AddLanguage(IWebDriver driver)
         {
-            Thread.Sleep(5000);
-            //string AddButton = "//div[@data-tab='first']//div[@class ='ui teal button ']";
-            //WaitHelpers.WaitToBeClickable(driver, "XPath", AddButton, 3);
-            driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div")).Click();
+            WaitHelpers.WaitToBeClickable(driver, "XPath", AddButtonXpath, 5);
+            AddButton.Click();
             Thread.Sleep(1500);
+
             //add language
-            driver.FindElement(By.XPath("//input[@placeholder='Add Language']")).SendKeys("Java");
+            AddLanguage1.SendKeys("Java");
 
             // select the drop down list
-            driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[2]/select")).Click();
+            DropDown.Click();
+
             //Select basic 
-            driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[2]/select/option[2]")).Click();
+            SelectOption.Click();
 
             //identify the add language and click on the button
-            driver.FindElement(By.XPath("//input[@value='Add']")).Click();
+            WaitHelpers.WaitToBeClickable(driver, "XPath", AddNowXpath, 5);
+            AddNow.Click();
             Thread.Sleep(1500);
 
         }
         public string AddLang(IWebDriver driver)
         {
-            IWebElement AddLang = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[1]"));
 
-            return AddLang.Text;
+            return AddLang1.Text;
         }
         public string LangLevel(IWebDriver driver)
         {
-            IWebElement LangLevel = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[2]"));
-
-            return LangLevel.Text;
-
+            return LangLevel1.Text;
         }
         public void EditLanguage(IWebDriver driver, string Language)
         {
             Thread.Sleep(3000);
             //click on edit language
-            IWebElement EditLanguage = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[1]/i"));
-            EditLanguage.Click();
+            EditLanguage1.Click();
 
             //wait helpers
-            WaitHelpers.WaitToBeClickable(driver, "XPath", "//tbody/tr[1]/td[1]/div[1]/div[1]/input[1]", 3);
+            WaitHelpers.WaitToBeClickable(driver, "XPath", EditLangXpath, 3);
 
             //edit the language 
-            IWebElement EditLang = driver.FindElement(By.XPath("//tbody/tr[1]/td[1]/div[1]/div[1]/input[1]"));
             EditLang.Clear();
 
             //wait helpers
@@ -97,32 +127,28 @@ namespace Mars.Pages
             Thread.Sleep(4000);
             EditLang.SendKeys(Language);
 
-            Thread.Sleep(3000);
+            WaitHelpers.WaitToBeClickable(driver, "XPath", UpdateButtonXpath, 3);
             //click on update button
-            driver.FindElement(By.XPath("//tbody/tr[1]/td[1]/div[1]/span[1]/input[1]")).Click();
+            UpdateButton.Click();
             Thread.Sleep(3000);
 
         }
         public string UpdateLang(IWebDriver driver)
         {
-            IWebElement UpdateLang = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
-
-            return UpdateLang.Text;
+            return UpdateLang2.Text;
         }
         public void DeleteLanguage(IWebDriver driver)
         {
-             
-                //wait helpers.
-                WaitHelpers.WaitToBeClickable(driver, "XPath", "//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i", 4);
-                IWebElement DelLang = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i"));
-                DelLang.Click();   
+
+            //wait helpers.
+            WaitHelpers.WaitToBeClickable(driver, "XPath", DelLangXpath, 4);
+                DelLang2.Click();   
         }
         public string DelLang(IWebDriver driver)
         {
-            WaitHelpers.WaitToBeClickable(driver, "XPath", "//div/section[2]/div/div/div/div[3]/form/div[1]/a[1]", 5);
+            WaitHelpers.WaitToBeClickable(driver, "XPath", DelLanguageXpath, 5);
             //Identify editedlanguage and click
-            IWebElement DelLang = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));
-            return DelLang.Text;
+            return DelLang3.Text;
 
         }
 
