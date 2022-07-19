@@ -19,110 +19,172 @@ namespace Mars.Pages
             this.driver = driver;
         }
 
+        //find elements by XPath
+        private IWebElement EducationTab => driver.FindElement(By.XPath(EducationTabXpath));
+        private IWebElement AddNew => driver.FindElement(By.XPath(AddNewXpath));
+        private IWebElement AddCollage => driver.FindElement(By.XPath(AddCollageXpath));
+        private IWebElement SelectCollage => driver.FindElement(By.XPath(SelectCollageXpath));
+        private IWebElement SelectCountry => driver.FindElement(By.XPath(SelectCountryXpath));
+        private IWebElement SelectTitle => driver.FindElement(By.XPath(SelectTitleXpath));
+        private IWebElement SelectCourse => driver.FindElement(By.XPath(SelectCourseXpath));
+        private IWebElement EnterDegree => driver.FindElement(By.XPath(EnterDegreeXpath));
+        private IWebElement EnterYear => driver.FindElement(By.XPath(EnterYearXpath));
+        private IWebElement SelectYear => driver.FindElement(By.XPath(SelectYearXpath));
+        private IWebElement ClickAdd => driver.FindElement(By.XPath(ClickAddXpath));
+        private IWebElement NewCountry1 => driver.FindElement(By.XPath(NewCountryXpath));
+        private IWebElement NewUniversity1 => driver.FindElement(By.XPath(NewUniversityXpath));
+        private IWebElement NewTitle1 => driver.FindElement(By.XPath(NewTitleXpath));
+        private IWebElement NewDegree1 => driver.FindElement(By.XPath(NewDegreeXpath));
+        private IWebElement NewYear1 => driver.FindElement(By.XPath(NewYearXpath));
+        private IWebElement EditEdu => driver.FindElement(By.XPath(EditEduXpath));
+        private IWebElement collegeEdit => driver.FindElement(By.XPath(collegeEditXpath));
+        private IWebElement TitleEdit => driver.FindElement(By.XPath(TitleEditXpath));
+        private IWebElement YrOfGraduation => driver.FindElement(By.XPath(YrOfGraduationXpath));
+        private IWebElement YearEdit => driver.FindElement(By.XPath(YearEditXpath));
+        private IWebElement UpdateButton => driver.FindElement(By.XPath(UpdateButtonXpath));
+        private IWebElement EditedUniversity2 => driver.FindElement(By.XPath(EditedUniversityXpath));
+
+        private IWebElement EditedDegree2 => driver.FindElement(By.XPath(EditedDegreeXpath));
+        private IWebElement EditedYear2 => driver.FindElement(By.XPath(EditedYearXpath));
+        private IWebElement DeletedEdu => driver.FindElement(By.XPath(DeletedEduXpath));
+        private IWebElement DeletedUniversity3 => driver.FindElement(By.XPath(DeletedUniversityXpath));
+
+
+
+        //Xpath
+        private string EducationTabXpath = "//div/section[2]/div/div/div/div[3]/form/div[1]/a[3]";
+        private string AddNewXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/thead/tr/th[6]/div";
+        private string AddCollageXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[1]/div[1]/input";
+        private string SelectCollageXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[1]/div[2]/select";
+        private string SelectCountryXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[1]/div[2]/select/option[102]";
+        private string SelectTitleXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[1]/select";
+        private string SelectCourseXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[1]/select/option[7]";
+        private string EnterDegreeXpath = "/html/body/div[1]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[2]/input";
+        private string EnterYearXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[3]/select";
+        private string SelectYearXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[3]/select/option[5]";
+        private string ClickAddXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[3]/div/input[1]";
+        private string NewCountryXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr[last()]/td[1]";
+        private string NewUniversityXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr[last()]/td[2]";
+        private string NewTitleXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr[last()]/td[3]";
+        private string NewDegreeXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr[last()]/td[4]";
+        private string NewYearXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td[5]";
+        private string EditEduXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td[6]/span[1]/i";
+        private string collegeEditXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td/div[1]/div[1]/input";
+        private string TitleEditXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td/div[2]/div[2]/input";
+        private string YrOfGraduationXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td/div[2]/div[3]/select";
+        private string YearEditXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td/div[2]/div[3]/select/option[4]";
+        private string UpdateButtonXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td/div[3]/input[1]";
+        private string EditedUniversityXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td[2]";
+        private string EditedDegreeXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td[4]";
+        private string EditedYearXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td[5]";
+        private string DeletedEduXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td[6]/span[2]/i";
+        private string DeletedUniversityXpath = "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[1]";
+
+
+
+
+
         public void ClickOnEducationTab(IWebDriver driver)
         {
-
             //Navigate to education tab
-            string EducationTab = "//div/section[2]/div/div/div/div[3]/form/div[1]/a[3]";
-            WaitHelpers.WaitToBeClickable(driver, "XPath", EducationTab, 5);
-            driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[1]/a[3]")).Click();
+            
+            WaitHelpers.WaitToBeClickable(driver, "XPath", EducationTabXpath, 5);
+            EducationTab.Click();
 
         }
         public void AddEducation(IWebDriver driver)
         {
-            Thread.Sleep(2000);
+            WaitHelpers.WaitToBeClickable(driver, "XPath", AddNewXpath, 10);
             //click on add new in education tab
-            driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/thead/tr/th[6]/div")).Click();
+            AddNew.Click();
+           
             //Enter College/University name
-            driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[1]/div[1]/input")).SendKeys("Unitec");
+            AddCollage.SendKeys("Unitec");
+           
             //country of the college/ university is selecting 
-            driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[1]/div[2]/select")).Click();
+            SelectCollage.Click();
+          
             //New Zealand is selecting as the country
-            driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[1]/div[2]/select/option[102]")).Click();
+            SelectCountry.Click();
+            
             //select Title
-            driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[1]/select")).Click();
+            SelectTitle.Click();
+          
             //selecting B-Tech as course
-            driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[1]/select/option[7]")).Click();
+            SelectCourse.Click();
+            
             //Enter Degree
-            driver.FindElement(By.XPath("/html/body/div[1]/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[2]/input")).SendKeys("Bachelor");
+            EnterDegree.SendKeys("Bachelor");
+          
             //click on Year of graduation
-            driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[3]/select")).Click();
+            EnterYear.Click();
+           
             // Select year of graduation
-            driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[3]/select/option[5]")).Click();
+            SelectYear.Click();
+            
             //Click on Add button
-            driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[3]/div/input[1]")).Click();
+            ClickAdd.Click();
             Thread.Sleep(2000);
 
         }
         public string NewCountry(IWebDriver driver)
         {
-            IWebElement NewCountry = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr[last()]/td[1]"));
-            return NewCountry.Text;
+            return NewCountry1.Text;
 
         }
         public string NewUniversity(IWebDriver driver)
         {
-            IWebElement NewUniversity = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr[last()]/td[2]"));
-            return NewUniversity.Text;
+         return NewUniversity1.Text;
         }
         public string NewTitle(IWebDriver driver)
         {
-            IWebElement NewTitle = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr[last()]/td[3]"));
-            return NewTitle.Text;
-
+            return NewTitle1.Text;
         }
 
         public string NewDegree(IWebDriver driver)
         {
-            IWebElement NewDegree = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr[last()]/td[4]"));
-            return NewDegree.Text;
-
+            return NewDegree1.Text;
         }
         public string NewYear(IWebDriver driver)
         {
-            IWebElement NewYear = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td[5]"));
-            return NewYear.Text;
-
-
+            return NewYear1.Text;
         }
         public void EditEducation(IWebDriver driver, string University, string Degree)
         {
-            WaitHelpers.WaitToBeClickable(driver, "XPath", "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td[6]/span[1]/i", 4);
+            WaitHelpers.WaitToBeClickable(driver, "XPath", EditEduXpath, 4);
 
             //Edit button in education click
-            driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td[6]/span[1]/i")).Click();
+            EditEdu.Click();
+           
             //Edit University name
-            IWebElement collegeEdit = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td/div[1]/div[1]/input"));
             collegeEdit.Clear();
             collegeEdit.SendKeys(University);
+          
             //selecting the title and edit title
-            IWebElement TitleEdit = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td/div[2]/div[2]/input"));
             TitleEdit.Clear();
             TitleEdit.SendKeys(Degree);
+          
             //click on Year of graduation
-            driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td/div[2]/div[3]/select")).Click();
+            YrOfGraduation.Click();
+            
             //edit the year of graduation
-            IWebElement YearEdit = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td/div[2]/div[3]/select/option[4]"));
             YearEdit.Click();
 
             //Click on update
-            driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td/div[3]/input[1]")).Click();
+            UpdateButton.Click();
             Thread.Sleep(1000);
         }
         public string EditedUniversity(IWebDriver driver)
         {
-            IWebElement EditedUniversity = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td[2]"));
-            return EditedUniversity.Text;
+            return EditedUniversity2.Text;
         }
         public string EditedDegree(IWebDriver driver)
         {
-            IWebElement EditedDegree = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td[4]"));
-            return EditedDegree.Text;
+            return EditedDegree2.Text;
         }
         public string EditedYear(IWebDriver driver)
-        {
-            IWebElement EditedYear = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td[5]"));
-            return EditedYear.Text;
+        { 
+            return EditedYear2.Text;
         }
 
 
@@ -130,8 +192,8 @@ namespace Mars.Pages
         {
             try
             {
-                WaitHelpers.WaitToBeClickable(driver, "XPath", "//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td[6]/span[2]/i", 5);
-                driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody[2]/tr/td[6]/span[2]/i")).Click();
+                WaitHelpers.WaitToBeClickable(driver, "XPath", DeletedEduXpath, 5);
+                DeletedEdu.Click();
             }
 
             catch (Exception)
@@ -142,8 +204,7 @@ namespace Mars.Pages
         
         public string DeletedUniversity(IWebDriver driver)
         {
-            IWebElement DeletedUniversity = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[1]"));
-            return DeletedUniversity.Text;
+            return DeletedUniversity3.Text;
         }
         
 
